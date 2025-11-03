@@ -18,13 +18,17 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           {user ? (
             <>
+              <Link to="/submit-code" className="text-sm hover:text-blue-300 transition">Submit Code</Link>
+              {user.role === 'admin' && (
+                <Link to="/admin/verification" className="text-sm hover:text-blue-300 transition">Admin Panel</Link>
+              )}
               <div className="text-sm">Hi, {user.name}</div>
-              <button onClick={handleLogout} className="bg-red-600 px-3 py-1 rounded text-sm">Logout</button>
+              <button onClick={handleLogout} className="bg-red-600 px-3 py-1 rounded text-sm hover:bg-red-700 transition">Logout</button>
             </>
           ) : (
             <>
-              <Link to="/login" className="text-sm">Login</Link>
-              <Link to="/register" className="text-sm">Register</Link>
+              <Link to="/login" className="text-sm hover:text-blue-300 transition">Login</Link>
+              <Link to="/register" className="text-sm hover:text-blue-300 transition">Register</Link>
             </>
           )}
         </div>

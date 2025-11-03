@@ -1,0 +1,22 @@
+export const ServerVariables = {
+    bubbleSteps:"api/bubbleSteps",
+    selectionSteps:"api/selectionSteps",
+    insertionSteps:"api/insertionSteps",
+    mergeSteps:"api/mergeSteps",
+    quickSteps:"api/quickSteps",
+    nQueenSteps:"api/nQueenSteps",
+    gridPaths2Steps:"api/gridPaths2Steps",
+    inorderSteps:"api/inorderSteps",
+    preorderSteps:"api/preorderSteps",
+    postorderSteps:"api/postorderSteps",
+    knapsack01Steps:"api/knapsack01Steps",
+    lcsSteps:"api/lcsSteps",
+    coinChangeSteps:"api/coinChangeSteps",
+    factorialSteps:"api/factorialSteps",
+    fibonacciSteps:"api/fibonacciSteps",
+    bfsSteps:"api/bfsSteps",
+    dfsSteps:"api/dfsSteps",
+    dijkstraSteps:"api/dijkstraSteps",
+    linearSearchSteps:"api/linearSearchSteps",
+    binarySearchSteps:"api/binarySearchSteps"
+};

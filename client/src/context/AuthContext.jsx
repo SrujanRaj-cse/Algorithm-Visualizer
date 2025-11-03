@@ -1,22 +1,33 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('algoviz_user')); }
-    catch { return null; }
+    const storedUser = localStorage.getItem('user');
+    return storedUser ? JSON.parse(storedUser) : null;
   });
 
+  // ✅ Login
   const login = (userData) => {
     setUser(userData);
-    localStorage.setItem('algoviz_user', JSON.stringify(userData));
+    localStorage.setItem('user', JSON.stringify(userData));
   };
 
+  // ✅ Logout
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('algoviz_user');
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
   };
+
+  // ✅ Optional: automatically re-verify user on mount (if needed)
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
@@ -25,6 +36,7 @@ export function AuthProvider({ children }) {
   );
 }
 
+// ✅ Custom hook for easy use
 export function useAuth() {
   return useContext(AuthContext);
 }

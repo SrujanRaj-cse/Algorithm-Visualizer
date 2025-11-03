@@ -1,9 +1,9 @@
-import React from 'react';
+ import React from 'react';
 
 export default function ControlsPanel({ playing, setPlaying, stepForward, stepBack, reset, speed, setSpeed }) {
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex gap-2">
+      <div className="grid grid-cols-4 gap-2">
         <button onClick={() => setPlaying(p => !p)} className="bg-sky-600 text-white px-3 py-1 rounded">{playing ? 'Pause' : 'Play'}</button>
         <button onClick={stepBack} className="bg-gray-200 px-3 py-1 rounded">Back</button>
         <button onClick={stepForward} className="bg-gray-200 px-3 py-1 rounded">Next</button>
